@@ -90,4 +90,6 @@ body {
 	color: #2d6c2f;
 	font-size: 2em;
 	font-weight: bold;
+}.ListName {
+	font-weight: bold;
 }
