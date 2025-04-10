@@ -1,0 +1,93 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Arial, sans-serif;
+	background-color: #fdf7e5;
+	color: #000;
+	margin: 0;
+	padding: 20px;
+}
+
+/* Encabezado */
+.Header-Title {
+	font-size: 3em;
+	font-weight: bold;
+	color: #b73512;
+	text-align: center;
+}
+
+/* Sección de entradas y fondo */
+.SectionList-List h1 {
+	font-size: 1.8em;
+	margin-bottom: 10px;
+}
+
+.SectionList-List ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 30px 0;
+}
+
+.SectionList-List li {
+	font-size: 1.2em;
+	margin-bottom: 5px;
+}
+
+/* Fecha */
+.SectionDate {
+	position: absolute;
+	top: 140px;
+	left: 230px;
+}
+
+.SectionDate p {
+	font-size: 1.8em;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* Precio */
+.SectionPrice {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 170px;
+	left: 240px;
+}
+
+.SectionPrice-Top p {
+	background-color: #b73512;
+	color: #fff;
+	font-size: 2em;
+	padding: 10px 20px;
+	border-radius: 10px;
+}
+
+.SectionPrice-Bottom p {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+/* Contacto */
+.SectionContact {
+	text-align: center;
+	position: absolute;
+	bottom: 100px;
+	right: 5px;
+}
+
+.SectionContact-Title p {
+	color: #2d6c2f;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.SectionContact-Phone p {
+	color: #2d6c2f;
+	font-size: 2em;
+	font-weight: bold;
+}
