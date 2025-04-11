@@ -3,8 +3,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-				<link rel="stylesheet" href="style.css" />
-
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 		<header>
@@ -19,11 +18,7 @@
 						<div>
 							<ul>
 								<header><h1>ENTRADA:</h1></header>
-								<li> <p class="ListName">SOPA DE TRIGO</p></li>
-								<li>CALDO DE GALLINA</li>
-								<li>ENSALADA DE PALTA</li>
-								<li>CEVICHE</li>
-								<li>HUANCAINA</li>
+								<li id="entradas-list"></li>
 							</ul>
 						</div>
 					</article>
@@ -31,14 +26,7 @@
 						<div>
 							<ul>
 								<header><h1>FONDO:</h1></header>
-								<li>CORDERO A LA NORTEÑA</li>
-								<li>POLLO A LA NORTEÑA</li>
-								<li>SUDADO DE BONITO</li>
-								<li>PATITA CON MANI</li>
-								<li>BONITO FRITO</li>
-								<li>TRUCHA FRITA</li>
-								<li>CHULETA FRITA</li>
-								<li>CHURRASCO FRITO</li>
+								<li id="fondos-list"></li>
 							</ul>
 						</div>
 					</article>
@@ -46,7 +34,7 @@
 			</div>
 		</section>
 		<section class="SectionDate">
-			<div><p>JUEVES</p></div>
+			<div><p id="menu-dia"></p></div>
 		</section>
 		<section class="SectionPrice">
 			<div class="SectionPrice-Top">
@@ -56,6 +44,120 @@
 				<p>+TAPER</p>
 			</div>
 		</section>
-		
+		<section>
+			<h2>Entradas</h2>
+			<ul id="entradas-list"></ul>
+			<input type="text" id="entrada-input" placeholder="Agregar entrada" />
+			<button onclick="agregarEntrada()">Agregar</button>
+			<h2>Fondos</h2>
+			<ul id="fondos-list"></ul>
+			<input type="text" id="fondo-input" placeholder="Agregar fondo" />
+			<button onclick="agregarFondo()">Agregar</button>
+
+			<h2>Fecha del Menú</h2>
+			<input type="text" id="input-dia" placeholder="Escribe el día (ej. SÁBADO)" />
+			<button onclick="cambiarDia()">Actualizar Día</button>
+		</section>
+
+		<input type="text" id="adicional-input" placeholder="Agregar adicional" />
+		<button onclick="agregarAdicional()">Agregar Adicional</button>
+
+		<section class="Additional">
+			<div id="adicionales-container"></div>
+		</section>
+		<section>
+			<button onclick="limpiarTodo()" style="background-color: red; color: white">Limpiar Menú</button>
+		</section>
+
+		<script>
+			const entradas = JSON.parse(localStorage.getItem('entradas')) || [];
+			const fondos = JSON.parse(localStorage.getItem('fondos')) || [];
+			const adicionales = JSON.parse(localStorage.getItem('adicionales')) || [];
+
+			function renderList() {
+				document.getElementById('entradas-list').innerHTML = entradas.map((e) => `<li>${e}</li>`).join('');
+				document.getElementById('fondos-list').innerHTML = fondos.map((f) => `<li>${f}</li>`).join('');
+				renderAdicionales(); // Aquí
+			}
+
+			function agregarEntrada() {
+				const val = document.getElementById('entrada-input').value.trim();
+				if (val) {
+					entradas.push(val);
+					localStorage.setItem('entradas', JSON.stringify(entradas));
+					document.getElementById('entrada-input').value = '';
+					renderList();
+				}
+			}
+
+			function agregarFondo() {
+				const val = document.getElementById('fondo-input').value.trim();
+				if (val) {
+					fondos.push(val);
+					localStorage.setItem('fondos', JSON.stringify(fondos));
+					document.getElementById('fondo-input').value = '';
+					renderList();
+				}
+			}
+
+			function limpiarTodo() {
+				localStorage.removeItem('entradas');
+				localStorage.removeItem('fondos');
+				localStorage.removeItem('diaMenu');
+				localStorage.removeItem('adicionales');
+				entradas.length = 0;
+				fondos.length = 0;
+				adicionales.length = 0;
+				diaMenu = 'dia';
+				document.getElementById('menu-dia').textContent = diaMenu;
+				renderList();
+			}
+
+			let diaMenu = localStorage.getItem('diaMenu') || 'dia';
+			document.getElementById('menu-dia').textContent = diaMenu;
+
+			function cambiarDia() {
+				const nuevoDia = document.getElementById('input-dia').value.trim().toUpperCase();
+				if (nuevoDia) {
+					diaMenu = nuevoDia;
+					localStorage.setItem('diaMenu', diaMenu);
+					document.getElementById('menu-dia').textContent = diaMenu;
+					document.getElementById('input-dia').value = '';
+				}
+			}
+
+			function agregarAdicional() {
+				const val = document.getElementById('adicional-input').value.trim();
+				if (val) {
+					adicionales.push(val);
+					localStorage.setItem('adicionales', JSON.stringify(adicionales));
+					document.getElementById('adicional-input').value = '';
+					renderAdicionales();
+				}
+			}
+
+			function renderAdicionales() {
+				const cont = document.getElementById('adicionales-container');
+				cont.innerHTML = ''; // Limpiar antes de volver a renderizar
+
+				adicionales.forEach((item, index) => {
+					const p = document.createElement('p');
+					p.textContent = item;
+					p.className = 'adicional-item'; // <- Clase que luego estilizas con CSS
+					cont.appendChild(p);
+				});
+			}
+
+			renderList(); // cargar lista al iniciar
+		</script>
+
+		<!-- <section class="SectionContact">
+			<div class="SectionContact-Title">
+				<p>DELIVERY</p>
+			</div>
+			<div class="SectionContact-Phone">
+				<p>xxxxxxxxx</p>
+			</div>
+		</section> -->
 	</body>
 </html>
