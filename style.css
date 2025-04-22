@@ -17,8 +17,8 @@ body {
 	background-position: center;
 	background-repeat: no-repeat; */
 	font-family: 'Kanit-Regular', sans-serif;
-	background-color: #fdf7e5;
-	color: #000;
+	background-color: #000000e8;
+	color: #ffffffc2;
 	margin: 0;
 	padding-left: 20px;
 }
@@ -108,6 +108,45 @@ body {
 	right: 5px;
 	font-weight: bold;
 }
+
+#entradas-list li:nth-child(1){
+	color: #1b5cce	;
+}
+#entradas-list li:nth-child(2){
+	color: #d9c126;
+}
+#entradas-list li:nth-child(3){
+	color: #21c52a;
+}
+#entradas-list li:nth-child(4){
+	color: #ac51c0;
+}
+
+#fondos-list li:nth-child(1){
+	color: #FF5733;
+}
+#fondos-list li:nth-child(1){
+	color: #2BE094;
+}
+#fondos-list li:nth-child(1){
+	color: #FF1493;
+}
+#fondos-list li:nth-child(1){
+	color: #00BFFF;
+}
+#fondos-list li:nth-child(1){
+	color: #FF6347;
+}
+#fondos-list li:nth-child(1){
+	color: #7C4DFF;
+}
+#fondos-list li:nth-child(1){
+	color: #FFD700;
+}
+#fondos-list li:nth-child(1){
+	color: #32CD32;
+}
+
 
 #adicionales-container p:nth-child(1) {
 	text-align: center;

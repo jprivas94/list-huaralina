@@ -1,2 +1,27 @@
 Rest_List
-1.-Crear github y editarlo desde el telefono (Intentando)
+1.-Crear github y editarlo desde el telefono (Completado)
+2.-Volver mas interactivo, visible y colorido (Proceso)
+
+COLORES ENTRADA: 
+#1b5cce
+#d9c126
+#21c52a
+#ac51c0
+
+
+COLORES FONDO:
+#FF5733 (Naranja vibrante)
+
+#2BE094 (Verde neón)
+
+#FF1493 (Rosa fuerte)
+
+#00BFFF (Azul claro brillante)
+
+#FF6347 (Tomate)
+
+#7C4DFF (Púrpura brillante)
+
+#FFD700 (Amarillo dorado)
+
+#32CD32 (Verde lima)

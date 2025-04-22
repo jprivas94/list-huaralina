@@ -80,8 +80,9 @@
 				renderAdicionales(); // Aquí
 			}
 
+
 			function agregarEntrada() {
-				const val = document.getElementById('entrada-input').value.trim();
+				const val = document.getElementById('entrada-input').value.trim().toUpperCase();
 				if (val) {
 					entradas.push(val);
 					localStorage.setItem('entradas', JSON.stringify(entradas));
@@ -91,7 +92,7 @@
 			}
 
 			function agregarFondo() {
-				const val = document.getElementById('fondo-input').value.trim();
+				const val = document.getElementById('fondo-input').value.trim().toUpperCase();
 				if (val) {
 					fondos.push(val);
 					localStorage.setItem('fondos', JSON.stringify(fondos));
@@ -127,7 +128,7 @@
 			}
 
 			function agregarAdicional() {
-				const val = document.getElementById('adicional-input').value.trim();
+				const val = document.getElementById('adicional-input').value.trim().toUpperCase();
 				if (val) {
 					adicionales.push(val);
 					localStorage.setItem('adicionales', JSON.stringify(adicionales));
