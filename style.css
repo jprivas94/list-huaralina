@@ -9,6 +9,9 @@
 
 	font-family: 'ArchivoBlack-Regular';
 	src: url('./fonts/ArchivoBlack-Regular.ttf') format('truetype');
+
+	font-family:'Slackey-Regular';
+	src: url('./fonts/Slackey-Regular.ttf') format('truetype');
 }
 
 body {
@@ -16,7 +19,7 @@ body {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat; */
-	font-family: 'Kanit-Regular', sans-serif;
+	font-family: 'Slackey-Regular', sans-serif;
 	background-color: #000000e8;
 	color: #ffffffc2;
 	margin: 0;
