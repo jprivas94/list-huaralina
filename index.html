@@ -8,7 +8,7 @@
 	<body>
 		<header>
 			<div class="Header">
-				<p class="Header-Title">LA HUARALINA</p>
+				<p class="Header-Title" id="titulo">LA HUARALINA</p>
 			</div>
 		</header>
 		<section class="SectionList">
@@ -149,6 +149,30 @@
 				});
 			}
 
+
+			const colors = ['#9e1b1b', 
+      '#e76f1c', 
+      '#f2c230', 
+      '#658f3d', 
+      '#2b6ca3', 
+      '#4b0082', 
+      '#d12d94', 
+      '#30bfbf', 
+      '#8b5e3c', 
+      '#a8a8a8', 
+      'white' 
+			];
+
+			const titulo = document.getElementById('titulo');
+			const texto = titulo.textContent;
+			titulo.innerHTML = ''; // Limpiamos el contenido original
+
+			[...texto].forEach((letra, i) => {
+			const span = document.createElement('span');
+			span.textContent = letra;
+			span.style.color = colors[i % colors.length]; // Cicla colores si hay más letras
+			titulo.appendChild(span);
+			});
 			renderList(); // cargar lista al iniciar
 		</script>
 

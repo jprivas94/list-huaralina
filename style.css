@@ -4,14 +4,13 @@
 }
 
 @font-face {
-	font-family: 'Kanit-Regular';
-	src: url('./fonts/Kanit-Regular.ttf') format('truetype');
 
-	font-family: 'ArchivoBlack-Regular';
-	src: url('./fonts/ArchivoBlack-Regular.ttf') format('truetype');
+	font-family:'RussoOne-Regular';
+	src: url('./fonts/RussoOne-Regular.ttf') format('truetype');
+	
+	font-family:'Margarine-Regular';
+	src: url('./fonts/Margarine-Regular.ttf') format('truetype');
 
-	font-family:'Slackey-Regular';
-	src: url('./fonts/Slackey-Regular.ttf') format('truetype');
 }
 
 body {
@@ -19,7 +18,7 @@ body {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat; */
-	font-family: 'Slackey-Regular', sans-serif;
+	font-family: 'Margarine-Regular', sans-serif;
 	background-color: #000000e8;
 	color: #ffffffc2;
 	margin: 0;
@@ -32,20 +31,24 @@ body {
 	font-weight: bold;
 	color: #b73512;
 	text-align: center;
-	font-family: 'ArchivoBlack-Regular';
+	font-family: 'RussoOne-Regular', sans-serif;
+	text-shadow: -1px 1px 8px #706b6b;
+	padding-bottom: 15px;
 }
 
 /* Sección de entradas y fondo */
 .SectionList-List h1 {
 	font-size: 28px;
 	margin-bottom: 10px;
-	font-family: 'ArchivoBlack-Regular';
+	font-family: 'RussoOne-Regular', sans-serif;
+	text-shadow: -1px 1px 0px #7efd11;
+
 }
 
 .SectionList-List ul {
 	list-style: none;
 	padding: 0;
-	margin: 0 0 18px 0;
+	margin: 0 0 10px 0;
 }
 
 .SectionList-List li {
@@ -56,7 +59,7 @@ body {
 /* Fecha */
 .SectionDate {
 	position: absolute;
-	top: 143px;
+	top: 139px;
 	left: 244px;
 }
 
@@ -64,6 +67,8 @@ body {
 	font-size: 1.8em;
 	font-weight: bold;
 	text-align: center;
+	text-shadow: -1px 1px 0px #fd1111;
+
 }
 
 /* Precio */
@@ -128,7 +133,7 @@ body {
 .list-container {
 	width: 110px;
 	position: absolute;
-	bottom: 112px;
+	bottom: 70px;
 	right: 5px;
 	font-weight: bold;
 }
