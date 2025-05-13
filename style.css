@@ -56,8 +56,9 @@ body {
 /* Fecha */
 .SectionDate {
 	position: relative;
-	top: -520px;
-	left: 113px;
+	width: 240px;
+	top: -411px;
+	left: 111px;
 }
 
 .SectionDate p {
@@ -74,8 +75,9 @@ body {
 	align-items: center;
 	justify-content: center;
 	position: relative;
-	top: -527px;
-	left: 113px;
+	width: 115px;
+	top: -420px;
+	left: 210px;
 }
 
 .SectionPrice-Top p {
@@ -108,8 +110,8 @@ body {
 .list-container {
 	width: 110px;
 	position: relative;
-	bottom: 350px;
-	left: 235px;
+	bottom: 300px;
+	left: 205px;
 	font-weight: bold;
 }
 #adicionales-container p:nth-child(1) {

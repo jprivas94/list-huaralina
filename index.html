@@ -179,6 +179,13 @@
 			});
 
 			function capturarImagen() {
+				const dia = document.querySelector('#menu-dia');
+
+				if (dia) {
+					dia.style.position = 'relative';
+					dia.style.bottom = 'unset';
+					dia.style.left = 'unset';
+				}
 				const elemento = document.querySelector('.ImageToCapture');
 
 				// Crear un contenedor temporal para capturar a tamaño 375x667
