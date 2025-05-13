@@ -4,46 +4,52 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 		<link rel="stylesheet" href="style.css" />
+		<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 	</head>
 	<body>
-		<header>
-			<div class="Header">
-				<p class="Header-Title" id="titulo">LA HUARALINA</p>
-			</div>
-		</header>
-		<section class="SectionList">
-			<div class="SectionList-Container">
-				<section class="SectionList-List">
-					<article class="Section-List-Top">
-						<div>
-							<ul>
-								<header><h1>ENTRADA:</h1></header>
-								<li id="entradas-list"></li>
-							</ul>
-						</div>
-					</article>
-					<article class="Section-List-Bottom">
-						<div>
-							<ul>
-								<header><h1>FONDO:</h1></header>
-								<li id="fondos-list"></li>
-							</ul>
-						</div>
-					</article>
-				</section>
-			</div>
-		</section>
-		<section class="SectionDate">
-			<div><p id="menu-dia"></p></div>
-		</section>
-		<section class="SectionPrice">
-			<div class="SectionPrice-Top">
-				<p>11.00</p>
-			</div>
-			<div class="SectionPrice-Bottom">
-				<p>+TAPER</p>
-			</div>
-		</section>
+		<article class="ImageToCapture">
+			<header>
+				<div class="Header">
+					<p class="Header-Title" id="titulo">LA HUARALINA</p>
+				</div>
+			</header>
+			<section class="SectionList">
+				<div class="SectionList-Container">
+					<section class="SectionList-List">
+						<article class="Section-List-Top">
+							<div>
+								<ul>
+									<header><h1>ENTRADA:</h1></header>
+									<li id="entradas-list"></li>
+								</ul>
+							</div>
+						</article>
+						<article class="Section-List-Bottom">
+							<div>
+								<ul>
+									<header><h1>FONDO:</h1></header>
+									<li id="fondos-list"></li>
+								</ul>
+							</div>
+						</article>
+					</section>
+				</div>
+			</section>
+			<section class="SectionDate">
+				<div><p id="menu-dia"></p></div>
+			</section>
+			<section class="SectionPrice">
+				<div class="SectionPrice-Top">
+					<p>11.00</p>
+				</div>
+				<div class="SectionPrice-Bottom">
+					<p>+TAPER</p>
+				</div>
+			</section>
+			<section class="Additional">
+				<div id="adicionales-container" class="list-container"></div>
+			</section>
+		</article>
 		<section>
 			<h2>Entradas</h2>
 			<ul id="entradas-list"></ul>
@@ -62,12 +68,11 @@
 		<input type="text" id="adicional-input" placeholder="Agregar adicional" />
 		<button onclick="agregarAdicional()">Agregar Adicional</button>
 
-		<section class="Additional">
-			<div id="adicionales-container" class="list-container"></div>
-		</section>
 		<section>
 			<button onclick="limpiarTodo()" style="background-color: red; color: white">Limpiar Menú</button>
 		</section>
+
+		<button onclick="capturarImagen()">Capturar Menú</button>
 
 		<script>
 			const entradas = JSON.parse(localStorage.getItem('entradas')) || [];
@@ -79,7 +84,6 @@
 				document.getElementById('fondos-list').innerHTML = fondos.map((f) => `<li>${f}</li>`).join('');
 				renderAdicionales(); // Aquí
 			}
-
 
 			function agregarEntrada() {
 				const val = document.getElementById('entrada-input').value.trim().toUpperCase();
@@ -149,18 +153,18 @@
 				});
 			}
 
-
-			const colors = ['#9e1b1b', 
-      '#e76f1c', 
-      '#f2c230', 
-      '#658f3d', 
-      '#2b6ca3', 
-      '#4b0082', 
-      '#d12d94', 
-      '#30bfbf', 
-      '#8b5e3c', 
-      '#a8a8a8', 
-      'white' 
+			const colors = [
+				'#9e1b1b',
+				'#e76f1c',
+				'#f2c230',
+				'#658f3d',
+				'#2b6ca3',
+				'#4b0082',
+				'#d12d94',
+				'#30bfbf',
+				'#8b5e3c',
+				'#a8a8a8',
+				'white',
 			];
 
 			const titulo = document.getElementById('titulo');
@@ -168,11 +172,36 @@
 			titulo.innerHTML = ''; // Limpiamos el contenido original
 
 			[...texto].forEach((letra, i) => {
-			const span = document.createElement('span');
-			span.textContent = letra;
-			span.style.color = colors[i % colors.length]; // Cicla colores si hay más letras
-			titulo.appendChild(span);
+				const span = document.createElement('span');
+				span.textContent = letra;
+				span.style.color = colors[i % colors.length]; // Cicla colores si hay más letras
+				titulo.appendChild(span);
 			});
+
+			function capturarImagen() {
+				const elemento = document.querySelector('.ImageToCapture');
+
+				// Crear un contenedor temporal para capturar a tamaño 375x667
+				const clone = elemento.cloneNode(true);
+				const container = document.createElement('div');
+				container.style.width = '375px';
+				container.style.height = '667px';
+				container.style.padding = '0';
+				container.style.margin = '0 auto';
+				container.style.boxSizing = 'border-box';
+				container.style.overflow = 'hidden';
+				container.style.backgroundColor = '#000000e8';
+				container.appendChild(clone);
+				document.body.appendChild(container);
+
+				html2canvas(container, { width: 375, height: 667, scale: 2 }).then((canvas) => {
+					const link = document.createElement('a');
+					link.download = 'menu-captura.png';
+					link.href = canvas.toDataURL();
+					link.click();
+					document.body.removeChild(container); // eliminar contenedor temporal
+				});
+			}
 			renderList(); // cargar lista al iniciar
 		</script>
 

@@ -4,13 +4,11 @@
 }
 
 @font-face {
-
-	font-family:'RussoOne-Regular';
+	font-family: 'RussoOne-Regular';
 	src: url('./fonts/RussoOne-Regular.ttf') format('truetype');
-	
-	font-family:'Margarine-Regular';
-	src: url('./fonts/Margarine-Regular.ttf') format('truetype');
 
+	font-family: 'Margarine-Regular';
+	src: url('./fonts/Margarine-Regular.ttf') format('truetype');
 }
 
 body {
@@ -42,7 +40,6 @@ body {
 	margin-bottom: 10px;
 	font-family: 'RussoOne-Regular', sans-serif;
 	text-shadow: -1px 1px 0px #7efd11;
-
 }
 
 .SectionList-List ul {
@@ -58,9 +55,9 @@ body {
 
 /* Fecha */
 .SectionDate {
-	position: absolute;
-	top: 139px;
-	left: 244px;
+	position: relative;
+	top: -520px;
+	left: 113px;
 }
 
 .SectionDate p {
@@ -68,7 +65,6 @@ body {
 	font-weight: bold;
 	text-align: center;
 	text-shadow: -1px 1px 0px #fd1111;
-
 }
 
 /* Precio */
@@ -77,9 +73,9 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	position: absolute;
-	top: 170px;
-	left: 256px;
+	position: relative;
+	top: -527px;
+	left: 113px;
 }
 
 .SectionPrice-Top p {
@@ -111,9 +107,9 @@ body {
 
 .list-container {
 	width: 110px;
-	position: absolute;
-	bottom: 112px;
-	right: 5px;
+	position: relative;
+	bottom: 350px;
+	left: 235px;
 	font-weight: bold;
 }
 #adicionales-container p:nth-child(1) {
@@ -130,53 +126,45 @@ body {
 	text-align: center;
 }
 
-.list-container {
-	width: 110px;
-	position: absolute;
-	bottom: 70px;
-	right: 5px;
-	font-weight: bold;
-}
-
 /* ENTRADA */
 
-#entradas-list li:nth-child(1){
-	color: #1b5cce	;
+#entradas-list li:nth-child(1) {
+	color: #1b5cce;
 }
-#entradas-list li:nth-child(2){
+#entradas-list li:nth-child(2) {
 	color: #d9c126;
 }
-#entradas-list li:nth-child(3){
+#entradas-list li:nth-child(3) {
 	color: #21c52a;
 }
-#entradas-list li:nth-child(4){
+#entradas-list li:nth-child(4) {
 	color: #ac51c0;
 }
 
 /* FONDO */
-#fondos-list li:nth-child(1){
-	color: #FF5733;
+#fondos-list li:nth-child(1) {
+	color: #ff5733;
 }
-#fondos-list li:nth-child(2){
-	color: #2BE094;
+#fondos-list li:nth-child(2) {
+	color: #2be094;
 }
-#fondos-list li:nth-child(3){
-	color: #FF1493;
+#fondos-list li:nth-child(3) {
+	color: #ff1493;
 }
-#fondos-list li:nth-child(4){
-	color: #00BFFF;
+#fondos-list li:nth-child(4) {
+	color: #00bfff;
 }
-#fondos-list li:nth-child(5){
-	color: #FF6347;
+#fondos-list li:nth-child(5) {
+	color: #ff6347;
 }
-#fondos-list li:nth-child(6){
-	color: #7C4DFF;
+#fondos-list li:nth-child(6) {
+	color: #7c4dff;
 }
-#fondos-list li:nth-child(7){
-	color: #FFD700;
+#fondos-list li:nth-child(7) {
+	color: #ffd700;
 }
-#fondos-list li:nth-child(8){
-	color: #32CD32;
+#fondos-list li:nth-child(8) {
+	color: #32cd32;
 }
 
 /* .SectionContact-Phone p {
