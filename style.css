@@ -126,6 +126,9 @@ body {
 	text-align: center;
 }
 
+.ImageToCapture {
+	margin: 0px 20px 0px 20px;
+}
 /* ENTRADA */
 
 #entradas-list li:nth-child(1) {
