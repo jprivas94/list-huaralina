@@ -31,7 +31,6 @@ body {
 	text-align: center;
 	font-family: 'RussoOne-Regular', sans-serif;
 	text-shadow: -1px 1px 8px #706b6b;
-	padding-bottom: 15px;
 }
 
 /* Sección de entradas y fondo */
@@ -53,12 +52,15 @@ body {
 	margin-bottom: 6px;
 }
 
+.SectionList-List {
+	width: 375px;
+	display: grid;
+	grid-template-columns: 220px 1fr;
+}
+
 /* Fecha */
-.SectionDate {
-	position: relative;
-	width: 240px;
-	top: -411px;
-	left: 111px;
+.Section-Date {
+	align-self: center;
 }
 
 .SectionDate p {
@@ -73,11 +75,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	position: relative;
-	width: 115px;
-	top: -420px;
-	left: 210px;
 }
 
 .SectionPrice-Top p {
@@ -107,11 +104,12 @@ body {
 	font-weight: bold;
 }
 
+.Additional {
+	align-self: center;
+}
+
 .list-container {
 	width: 110px;
-	position: relative;
-	bottom: 300px;
-	left: 205px;
 	font-weight: bold;
 }
 #adicionales-container p:nth-child(1) {
