@@ -27,7 +27,7 @@
 
 						<article class="Section-Date">
 							<section class="SectionDate">
-								<div><p id="menu-dia" contenteditable="true"></p></div>
+								<div><p id="menu-dia" contenteditable="true" style="text-transform: uppercase"></p></div>
 							</section>
 							<section class="SectionPrice">
 								<div class="SectionPrice-Top">
@@ -47,7 +47,12 @@
 							</div>
 						</article>
 						<section class="Additional">
-							<div id="adicionales-container" class="list-container" contenteditable="true"></div>
+							<div
+								id="adicionales-container"
+								class="list-container"
+								contenteditable="true"
+								style="text-transform: uppercase"
+							></div>
 						</section>
 						<article></article>
 					</section>
@@ -57,7 +62,7 @@
 		<section>
 			<h2 class="titleCapture">Captura</h2>
 			<button class="bottonTypePhoto" onclick="capturarImagen()">📷 Foto</button>
-			 <h2>Entradas</h2>
+			<h2>Entradas</h2>
 			<ul id="entradas-list"></ul>
 			<input type="text" id="entrada-input" placeholder="Agregar entrada" />
 			<button onclick="agregarEntrada()">Agregar</button>
@@ -175,7 +180,7 @@
 
 			const titulo = document.getElementById('titulo');
 			const texto = titulo.textContent;
-			titulo.innerHTML = ''; 
+			titulo.innerHTML = '';
 			[...texto].forEach((letra, i) => {
 				const span = document.createElement('span');
 				span.textContent = letra;
@@ -184,54 +189,54 @@
 			});
 
 			function capturarImagen() {
-			const dia = document.querySelector('#menu-dia');
+				const dia = document.querySelector('#menu-dia');
 
-			if (dia) {
-				dia.style.position = 'relative';
-				dia.style.bottom = 'unset';
-				dia.style.left = 'unset';
-			}
-
-			const elemento = document.querySelector('.ImageToCapture');
-
-			// Crear un contenedor temporal para capturar a tamaño 375x667
-			const clone = elemento.cloneNode(true);
-			const container = document.createElement('div');
-			container.style.width = '375px';
-			container.style.height = '667px';
-			container.style.padding = '0';
-			container.style.margin = '0 auto';
-			container.style.boxSizing = 'border-box';
-			container.style.overflow = 'hidden';
-			container.style.backgroundColor = '#000000e8';
-			container.appendChild(clone);
-			document.body.appendChild(container);
-
-			html2canvas(container, { width: 375, height: 667, scale: 2 }).then((canvas) => {
-				const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-				const imageData = canvas.toDataURL('image/png');
-
-				if (isMobile) {
-					// Crear un enlace oculto y simular el clic para descarga inmediata
-					const link = document.createElement('a');
-					link.href = imageData;
-					link.download = 'menu-captura.png';
-					document.body.appendChild(link);
-					link.click();
-					document.body.removeChild(link);
-				} else {
-					// Escritorio: descarga directa también
-					const link = document.createElement('a');
-					link.download = 'menu-captura.png';
-					link.href = imageData;
-					link.click();
+				if (dia) {
+					dia.style.position = 'relative';
+					dia.style.bottom = 'unset';
+					dia.style.left = 'unset';
 				}
 
-				// Eliminar el contenedor temporal
-				document.body.removeChild(container);
-			});
-		}
+				const elemento = document.querySelector('.ImageToCapture');
+
+				// Crear un contenedor temporal para capturar a tamaño 375x667
+				const clone = elemento.cloneNode(true);
+				const container = document.createElement('div');
+				container.style.width = '375px';
+				container.style.height = '667px';
+				container.style.padding = '0';
+				container.style.margin = '0 auto';
+				container.style.boxSizing = 'border-box';
+				container.style.overflow = 'hidden';
+				container.style.backgroundColor = '#000000e8';
+				container.appendChild(clone);
+				document.body.appendChild(container);
+
+				html2canvas(container, { width: 375, height: 667, scale: 2 }).then((canvas) => {
+					const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+					const imageData = canvas.toDataURL('image/png');
+
+					if (isMobile) {
+						// Crear un enlace oculto y simular el clic para descarga inmediata
+						const link = document.createElement('a');
+						link.href = imageData;
+						link.download = 'menu-captura.png';
+						document.body.appendChild(link);
+						link.click();
+						document.body.removeChild(link);
+					} else {
+						// Escritorio: descarga directa también
+						const link = document.createElement('a');
+						link.download = 'menu-captura.png';
+						link.href = imageData;
+						link.click();
+					}
+
+					// Eliminar el contenedor temporal
+					document.body.removeChild(container);
+				});
+			}
 
 			renderList(); // cargar lista al iniciar
 		</script>
